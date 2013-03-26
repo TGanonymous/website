@@ -1,0 +1,13 @@
+{% extends "base.j2" %}
+{% from "macros.j2" import render_excerpt with context  %}
+{% block container %}
+    <h1 class="title">{{ resource.meta.title }}</h1>
+
+    <ul class="listing clear">
+        {% for res in resource.node.walk_resources_sorted_by_title() %}
+        <li>
+            {{ render_excerpt(res) }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock container %}

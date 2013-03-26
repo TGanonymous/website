@@ -1,0 +1,16 @@
+{% extends "base.j2" %}
+
+
+{% block container %}
+<div class="content">
+    <header>
+        <h1>{{ resource.meta.title }}</h1>
+    </header>
+
+    {# This is where the bulk of the content will go #}
+    {% filter markdown|typogrify -%}
+        {% block content %}
+        {% endblock %}
+    {%- endfilter %}
+</div>
+{% endblock container %}
